@@ -36,7 +36,8 @@ Designed to feel like a native app on Android, with smooth animations, dark mode
 ---
 
 ## 🚀 Live Demo
-)**
+
+👉 https://drewc5214-crypto.github.io/King-James-Bible/
 
 ---
 

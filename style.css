@@ -1,0 +1,393 @@
+/* Import a modern font (optional; remove if offline issues) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Libre+Baskerville:wght@400;700&display=swap');
+
+/* CSS Variables for Themes */
+:root {
+    --bg-color: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    --header-bg: #fff;
+    --text-color: #333;
+    --card-bg: #fff;
+    --border-color: #ddd;
+    --accent-color: #3498db;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --verse-font: 'Libre Baskerville', serif;
+}
+
+body.dark {
+    --bg-color: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    --header-bg: #34495e;
+    --text-color: #ecf0f1;
+    --card-bg: #2c3e50;
+    --border-color: #7f8c8d;
+    --accent-color: #3498db;
+    --shadow: rgba(0, 0, 0, 0.3);
+}
+
+/* Intro Screen with Background Picture */
+#intro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%), 
+                radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#intro::before {
+    content: '✝️';
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 5rem;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+#intro.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.intro-content {
+    text-align: center;
+    max-width: 400px;
+    padding: 20px;
+    background: var(--card-bg);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px var(--shadow);
+}
+
+.intro-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.intro-content p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+#verse-of-the-day {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    font-family: var(--verse-font);
+}
+
+#verse-of-the-day h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--accent-color);
+}
+
+#random-verse {
+    font-style: italic;
+    color: var(--text-color);
+}
+
+#developer-info {
+    margin-bottom: 20px;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 0.8s ease;
+}
+
+#developer-info h2 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #fff;
+}
+
+.dev-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dev-details p {
+    margin: 0;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon {
+    font-size: 1.2rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-5px);
+    }
+    60% {
+        transform: translateY(-3px);
+    }
+}
+
+#start-btn {
+    padding: 15px 30px;
+    background: linear-gradient(135deg, var(--accent-color) 0%, #2980b9 100%);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#start-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
+}
+
+/* Global Styles */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f5f7fa; /* Fallback solid color */
+    background: var(--bg-color); /* Gradient if supported */
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+header {
+    background: var(--header-bg);
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 10px var(--shadow);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+#theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Controls Section */
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--shadow);
+}
+
+select {
+    flex: 1;
+    min-width: 120px;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    background: var(--card-bg);
+    color: var(--text-color);
+    transition: border-color 0.3s ease;
+}
+
+select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+button {
+    padding: 12px 20px;
+    background: linear-gradient(135deg, var(--accent-color) 0%, #2980b9 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Search Section */
+.search-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--shadow);
+}
+
+#search-input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    background: var(--card-bg);
+    color: var(--text-color);
+}
+
+#search-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+/* Loading and Text Display */
+#loading {
+    text-align: center;
+    font-style: italic;
+    color: var(--text-color);
+    margin: 20px 0;
+}
+
+#search-results {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--shadow);
+    margin-bottom: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+#search-results h3 {
+    margin-top: 0;
+    color: var(--text-color);
+}
+
+#search-results ul {
+    list-style: none;
+    padding: 0;
+}
+
+#search-results li {
+    margin: 10px 0;
+    padding: 10px;
+    background: var(--bg-color);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+#search-results li:hover {
+    background: var(--accent-color);
+    color: #fff;
+}
+
+#bible-text {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--shadow);
+    max-height: 60vh;
+    overflow-y: auto;
+    font-family: var(--verse-font);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+#bible-text h2 {
+    margin-top: 0;
+    color: var(--text-color);
+    font-weight: 700;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+}
+
+#bible-text p {
+    margin: 10px 0;
+    text-indent: 20px;
+}
+
+#bible-text sup {
+    font-size: 0.8em;
+    color: var(--border-color);
+    margin-right: 5px;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 600px) {
+    .controls, .search-section {
+        flex-direction: column;
+    }
+    select, button, #search-input {
+        width: 100%;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+    #bible-text {
+        font-size: 1rem;
+        padding: 15px;
+    }
+    .intro-content h1 {
+        font-size: 2rem;
+    }
+}

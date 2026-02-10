@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KJV Bible</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="intro">
+        <div class="intro-content">
+            <h1>Welcome to KJV Bible</h1>
+            <p>Explore the King James Version of the Bible with ease. Search verses, switch themes, and read offline.</p>
+            <div id="verse-of-the-day">
+                <h2>Verse of the Day</h2>
+                <p id="random-verse">Loading verse...</p>
+            </div>
+            <div id="developer-info">
+                <h2>About the Developer</h2>
+                <div class="dev-details">
+                    <p><span class="icon">👨‍💻</span> Developed by Ron Jemuel Jumaoy, a passionate web developer focused on creating meaningful apps.</p>
+                    <p><span class="icon">📧</span> Contact: ronjemuel321@gmail.com</p>
+                    <p><span class="icon">🐙</span> Facebook: Ron Jemuel Jumao-as</p>
+                </div>
+            </div>
+            <button id="start-btn">Start Reading</button>
+        </div>
+    </div>
+    <header style="display: none;">
+        <h1>KJV Bible </h1>
+        <button id="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
+    </header>
+    <main style="display: none;">
+        <div class="controls">
+            <select id="book-select">
+                <!-- Old Testament -->
+                <option value="Genesis">Genesis</option>
+                <option value="Exodus">Exodus</option>
+                <option value="Leviticus">Leviticus</option>
+                <option value="Numbers">Numbers</option>
+                <option value="Deuteronomy">Deuteronomy</option>
+                <option value="Joshua">Joshua</option>
+                <option value="Judges">Judges</option>
+                <option value="Ruth">Ruth</option>
+                <option value="1 Samuel">1 Samuel</option>
+                <option value="2 Samuel">2 Samuel</option>
+                <option value="1 Kings">1 Kings</option>
+                <option value="2 Kings">2 Kings</option>
+                <option value="1 Chronicles">1 Chronicles</option>
+                <option value="2 Chronicles">2 Chronicles</option>
+                <option value="Ezra">Ezra</option>
+                <option value="Nehemiah">Nehemiah</option>
+                <option value="Esther">Esther</option>
+                <option value="Job">Job</option>
+                <option value="Psalms">Psalms</option>
+                <option value="Proverbs">Proverbs</option>
+                <option value="Ecclesiastes">Ecclesiastes</option>
+                <option value="Song of Solomon">Song of Solomon</option>
+                <option value="Isaiah">Isaiah</option>
+                <option value="Jeremiah">Jeremiah</option>
+                <option value="Lamentations">Lamentations</option>
+                <option value="Ezekiel">Ezekiel</option>
+                <option value="Daniel">Daniel</option>
+                <option value="Hosea">Hosea</option>
+                <option value="Joel">Joel</option>
+                <option value="Amos">Amos</option>
+                <option value="Obadiah">Obadiah</option>
+                <option value="Jonah">Jonah</option>
+                <option value="Micah">Micah</option>
+                <option value="Nahum">Nahum</option>
+                <option value="Habakkuk">Habakkuk</option>
+                <option value="Zephaniah">Zephaniah</option>
+                <option value="Haggai">Haggai</option>
+                <option value="Zechariah">Zechariah</option>
+                <option value="Malachi">Malachi</option>
+                <!-- New Testament -->
+                <option value="Matthew">Matthew</option>
+                <option value="Mark">Mark</option>
+                <option value="Luke">Luke</option>
+                <option value="John">John</option>
+                <option value="Acts">Acts</option>
+                <option value="Romans">Romans</option>
+                <option value="1 Corinthians">1 Corinthians</option>
+                <option value="2 Corinthians">2 Corinthians</option>
+                <option value="Galatians">Galatians</option>
+                <option value="Ephesians">Ephesians</option>
+                <option value="Philippians">Philippians</option>
+                <option value="Colossians">Colossians</option>
+                <option value="1 Thessalonians">1 Thessalonians</option>
+                <option value="2 Thessalonians">2 Thessalonians</option>
+                <option value="1 Timothy">1 Timothy</option>
+                <option value="2 Timothy">2 Timothy</option>
+                <option value="Titus">Titus</option>
+                <option value="Philemon">Philemon</option>
+                <option value="Hebrews">Hebrews</option>
+                <option value="James">James</option>
+                <option value="1 Peter">1 Peter</option>
+                <option value="2 Peter">2 Peter</option>
+                <option value="1 John">1 John</option>
+                <option value="2 John">2 John</option>
+                <option value="3 John">3 John</option>
+                <option value="Jude">Jude</option>
+                <option value="Revelation">Revelation</option>
+            </select>
+            <select id="chapter-select">
+                <!-- Chapters populated dynamically -->
+            </select>
+            <button id="load-btn">Load Chapter</button>
+        </div>
+        <div class="search-section">
+            <input type="text" id="search-input" placeholder="Search verses or chapters (e.g., 'love' or 'Hebrews 7:2')">
+            <button id="search-btn">Search</button>
+        </div>
+        <div id="loading" style="display: none;">Loading Bible data...</div>
+        <div id="search-results" style="display: none;"></div>
+        <div id="bible-text"></div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
